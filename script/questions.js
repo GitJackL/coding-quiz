@@ -52,3 +52,24 @@ function presentQuestion() {
   }
 }
 
+
+function answerQuestion(event) {
+  var selectedChoice = event.target.innerHTML; // get the text of the button clicked
+  var currentQuestion = questions[currentQuestionIndex]; // get the current question
+  if (selectedChoice === currentQuestion.choices[currentQuestion.answer]) { // check if the selected choice is the correct answer
+    document.getElementById("feedback").innerHTML = "Correct";
+    document.getElementById("feedback").classList.remove("hide");
+    userAnswers.push(1); // add 1 to the userAnswers array to indicate a correct answer
+  } else {
+    document.getElementById("feedback").innerHTML = "Incorrect";
+    document.getElementById("feedback").classList.remove("hide");
+    time += 10;
+    userAnswers.push(0); // add 0 to the userAnswers array to indicate an incorrect answer
+  }
+  currentQuestionIndex++;
+  if (currentQuestionIndex === questions.length) {
+    endQuiz(); // end the quiz when all questions have been answered
+  } else {
+    presentQuestion();
+  }
+}

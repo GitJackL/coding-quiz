@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz</title>
-
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
   <body>
-    <div class="scores"><a href="highscores.html">View Highscores</a></div>
-
     <div class="timer">Time: <span id="time">0</span></div>
 
     <div class="wrapper">
@@ -36,13 +33,12 @@
         <p>Your final score is <span id="final-score"></span>.</p>
         <p>
           Enter initials: <input type="text" id="initials" max="3" />
-          <button id="submit">Submit</button>
+          <button id="submit" onclick="endQuiz()">Submit</button>
         </p>
       </div>
-
+      <div class="scores"><a href="highscores.html">View Highscores</a></div>
       <div id="feedback" class="feedback hide"></div>
     </div>
-
     <script src="script/questions.js"></script>
     <script src="script/logic.js"></script>
   </body>
